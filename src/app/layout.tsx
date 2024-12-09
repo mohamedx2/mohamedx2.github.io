@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import './globals.css';
+
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import "./globals.css";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -9,7 +10,6 @@ export const metadata: Metadata = {
   description: "Portfolio showcasing full-stack development skills and projects",
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
       { url: '/favicon.svg', type: 'image/svg+xml' }
     ],
     apple: { url: '/favicon.svg' }
