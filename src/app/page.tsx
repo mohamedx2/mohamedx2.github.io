@@ -1,4 +1,6 @@
-
+/**
+ * Home page component
+ */
 
 export default function Home() {
   return (
@@ -76,15 +78,42 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <SkillCategory 
               title="Frontend Development"
-              skills={["JavaScript", "TypeScript", "React.js", "Next.js", "HTML", "CSS", "Tailwind CSS", "@nextui-org/react", "Framer Motion"]}
+              skills={[
+                "JavaScript",
+                "TypeScript",
+                "React.js",
+                "Next.js",
+                "HTML",
+                "CSS",
+                "Tailwind CSS",
+                "@nextui-org/react",
+                "Framer Motion"
+              ]}
             />
             <SkillCategory 
               title="Backend Development"
-              skills={["Node.js", "Python (Flask)", "PHP", "C", "Java", "RESTful APIs"]}
+              skills={[
+                "Node.js",
+                "Python (Flask)",
+                "PHP",
+                "C",
+                "Java",
+                "RESTful APIs",
+                "GraphQL",
+                "Express.js"
+              ]}
             />
             <SkillCategory 
               title="Databases & Tools"
-              skills={["MongoDB", "Supabase", "SQL", "Docker", "Git (Certified)", "NextAuth.js", "JWT"]}
+              skills={[
+                "MongoDB",
+                "Supabase",
+                "SQL",
+                "Docker",
+                "Git (Certified)",
+                "NextAuth.js",
+                "JWT",
+              ]}
             />
           </div>
         </div>
