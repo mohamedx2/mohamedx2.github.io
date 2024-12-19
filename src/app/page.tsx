@@ -169,13 +169,13 @@ export default function Home() {
               title="Git & GitHub"
               issuer="365 Data Science"
               date="2024"
-              link="https://learn.365datascience.com/certificates/CC-3D82ADAB87/"
+              link="https://learn.365datascience.com/certificates/CC-1F47BE6F06/"
             />
             <CertificationCard
               title="Introduction to Python"
               issuer="365 Data Science"
               date="2024"
-              link="https://learn.365datascience.com/certificates/CC-1F47BE6F06/"
+              link="https://learn.365datascience.com/certificates/CC-3D82ADAB87/"
             />
           </div>
         </div>
