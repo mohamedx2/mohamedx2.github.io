@@ -32,7 +32,7 @@ export default function RootLayout({
         <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
           <div className="container mx-auto px-4 py-4">
             <div className="flex justify-between items-center">
-              <a href="#" className="text-xl font-bold text-gray-800 dark:text-white">Portfolio</a>
+              <a href="#" className="text-xl font-bold text-gray-800 dark:text-white">Mohamed Ali Hamroun</a>
               <div className="hidden md:flex space-x-8">
                 <a href="#about" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">About</a>
                 <a href="#skills" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Skills</a>
