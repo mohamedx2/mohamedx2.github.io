@@ -99,7 +99,6 @@ export default function Home() {
                 "C",
                 "Java",
                 "RESTful APIs",
-                "GraphQL",
                 "Express.js"
               ]}
             />
