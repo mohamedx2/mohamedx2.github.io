@@ -126,6 +126,20 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <ProjectCard
+              title="DBGO - Lightweight Database System"
+              description="A simple yet powerful database system written in Go featuring ACID-like transactions, data validation, thread-safe operations, and cross-platform support. Includes CLI, Node.js client library, and REST API."
+              tags={["Go", "Node.js", "REST API", "Database", "CLI"]}
+              githubLink="https://github.com/mohamedx2/db"
+              demoLink="https://dbgo.vercel.app/"
+            />
+            <ProjectCard
+              title="Modern E-commerce Platform"
+              description="Full-featured e-commerce platform with Google OAuth, real-time cart management, admin dashboard, analytics, and secure payment integration. Built with Next.js 15 and modern web technologies."
+              tags={["Next.js", "TypeScript", "MongoDB", "NextUI", "Next-Auth", "Tailwind CSS"]}
+              githubLink="https://ecommerce-ruddy-psi.vercel.app/"
+              demoLink="https://github.com/mohamedx2/ecommerce"
+            />
+            <ProjectCard
               title="Mega-Tel Web Application"
               description="A robust MERN stack application designed for managing telecommunications services. Implemented features for real-time data handling, secure authentication, and a responsive user interface."
               tags={["MERN Stack", "Real-time Data", "Authentication", "Responsive UI", "MongoDB"]}
