@@ -136,8 +136,8 @@ export default function Home() {
               title="Modern E-commerce Platform"
               description="Full-featured e-commerce platform with Google OAuth, real-time cart management, admin dashboard, analytics, and secure payment integration. Built with Next.js 15 and modern web technologies."
               tags={["Next.js", "TypeScript", "MongoDB", "NextUI", "Next-Auth", "Tailwind CSS"]}
-              githubLink="https://ecommerce-ruddy-psi.vercel.app/"
-              demoLink="https://github.com/mohamedx2/ecommerce"
+              githubLink="https://github.com/mohamedx2/ecommerce"
+              demoLink="https://ecommerce-ruddy-psi.vercel.app"
             />
             <ProjectCard
               title="Mega-Tel Web Application"
@@ -158,14 +158,14 @@ export default function Home() {
               description="Created an online compiler with integrated AI to help clients learn programming languages. Deployed using Flask for robust backend support."
               tags={["Flask", "AI Integration", "Compiler Design"]}
               githubLink="https://github.com/mohamedx2/online_compiler_flask"
-              demoLink="https://lnkd.in/eXZZ5quR"
+              demoLink="https://online-compiler-flask.onrender.com/"
             />
             <ProjectCard
               title="Hotel & Coffee Table Reservation System"
               description="Collaborative MERN stack project enabling room and table reservations with a user-friendly interface and secure database operations."
               tags={["MERN Stack", "MongoDB", "Express", "React"]}
               githubLink="https://github.com/mohamedx2/bookingMern"
-              demoLink="https://lnkd.in/eZxWvaAM"
+              demoLink="https://booking-reactjs-nine.vercel.app/"
             />
           </div>
         </div>
