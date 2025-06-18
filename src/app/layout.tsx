@@ -35,6 +35,7 @@ export default function RootLayout({
               <a href="#" className="text-xl font-bold text-gray-800 dark:text-white">Mohamed Ali Hamroun</a>
               <div className="hidden md:flex space-x-8">
                 <a href="#about" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">About</a>
+                <a href="#pfe" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">PFE</a>
                 <a href="#skills" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Skills</a>
                 <a href="#projects" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Projects</a>
                 <a href="#contact" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Contact</a>
