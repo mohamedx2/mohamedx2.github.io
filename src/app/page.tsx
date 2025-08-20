@@ -4,31 +4,57 @@
 
 import React from 'react';
 import Image from 'next/image';
+import TypingAnimation from '../components/TypingAnimation';
+import ScrollProgress from '../components/ScrollProgress';
+import ParticleSystem from '../components/ParticleSystem';
+import ThemeToggle from '../components/ThemeToggle';
+import DynamicStatus from '../components/DynamicStatus';
+import MagneticButton from '../components/MagneticButton';
+import AnimatedAvatar from '../components/AnimatedAvatar';
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
+      {/* Interactive Background Elements */}
+      <ParticleSystem className="opacity-30" />
+      <ScrollProgress />
+      <ThemeToggle />
+      
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="flex flex-col items-center text-center">
+          {/* Animated Avatar */}
+          <div className="mb-8">
+            <AnimatedAvatar size={150} />
+          </div>
+          
+          {/* Dynamic Status */}
+          <div className="mb-6">
+            <DynamicStatus />
+          </div>
+          
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Full Stack Developer
+            <TypingAnimation 
+              text="Full Stack Developer" 
+              speed={100}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            />
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
             22-year-old developer passionate about full-stack development, compiler creation, and innovative solutions
           </p>
           <div className="flex gap-4">
-            <a
+            <MagneticButton
               href="#projects"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors shadow-lg hover:shadow-xl"
             >
               View Projects
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href="#contact"
-              className="border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 py-3 rounded-lg transition-colors"
+              className="border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 py-3 rounded-lg transition-colors shadow-lg hover:shadow-xl"
             >
               Contact Me
-            </a>
+            </MagneticButton>
           </div>
         </div>
       </section>
