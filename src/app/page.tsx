@@ -4,31 +4,61 @@
 
 import React from 'react';
 import Image from 'next/image';
+import TypingAnimation from '../components/TypingAnimation';
+import ScrollProgress from '../components/ScrollProgress';
+import ParticleSystem from '../components/ParticleSystem';
+import ThemeToggle from '../components/ThemeToggle';
+import DynamicStatus from '../components/DynamicStatus';
+import MagneticButton from '../components/MagneticButton';
+import AnimatedAvatar from '../components/AnimatedAvatar';
+import InteractiveSkill from '../components/InteractiveSkill';
+import FloatingActionButtons from '../components/FloatingActionButtons';
+import InteractiveContactForm from '../components/InteractiveContactForm';
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
+      {/* Interactive Background Elements */}
+      <ParticleSystem className="opacity-30" />
+      <ScrollProgress />
+      <ThemeToggle />
+      <FloatingActionButtons />
+      
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="flex flex-col items-center text-center">
+          {/* Animated Avatar */}
+          <div className="mb-8">
+            <AnimatedAvatar size={150} />
+          </div>
+          
+          {/* Dynamic Status */}
+          <div className="mb-6">
+            <DynamicStatus />
+          </div>
+          
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Full Stack Developer
+            <TypingAnimation 
+              text="Full Stack Developer" 
+              speed={100}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            />
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
             22-year-old developer passionate about full-stack development, compiler creation, and innovative solutions
           </p>
           <div className="flex gap-4">
-            <a
+            <MagneticButton
               href="#projects"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors shadow-lg hover:shadow-xl"
             >
               View Projects
-            </a>
-            <a
+            </MagneticButton>
+            <MagneticButton
               href="#contact"
-              className="border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 py-3 rounded-lg transition-colors"
+              className="border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 py-3 rounded-lg transition-colors shadow-lg hover:shadow-xl"
             >
               Contact Me
-            </a>
+            </MagneticButton>
           </div>
         </div>
       </section>
@@ -71,51 +101,125 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20">
+      {/* Interactive Skills Section */}
+      <section id="skills" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Technical Skills
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            Interactive Tech Stack
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <SkillCategory 
-              title="Frontend Development"
-              skills={[
-                "JavaScript",
-                "TypeScript",
-                "React.js",
-                "Next.js",
-                "HTML",
-                "CSS",
-                "Tailwind CSS",
-                "@nextui-org/react",
-                "Framer Motion"
-              ]}
-            />
-            <SkillCategory 
-              title="Backend Development"
-              skills={[
-                "Node.js",
-                "Python (Flask)",
-                "PHP",
-                "C",
-                "Java",
-                "RESTful APIs",
-                "Express.js"
-              ]}
-            />
-            <SkillCategory 
-              title="Databases & Tools"
-              skills={[
-                "MongoDB",
-                "Supabase",
-                "SQL",
-                "Docker",
-                "Git (Certified)",
-                "NextAuth.js",
-                "JWT",
-              ]}
-            />
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+            Click on any skill to see my proficiency level and learn more about my experience
+          </p>
+          
+          {/* Frontend Skills */}
+          <div className="mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-center text-gray-800 dark:text-gray-200">
+              🎨 Frontend Development
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <InteractiveSkill 
+                name="JavaScript" 
+                proficiency={95} 
+                category="Frontend"
+                description="Expert in modern ES6+ features, async/await, closures, and advanced JavaScript patterns."
+              />
+              <InteractiveSkill 
+                name="TypeScript" 
+                proficiency={90} 
+                category="Frontend"
+                description="Strong typing, interfaces, generics, and advanced TypeScript features for large-scale applications."
+              />
+              <InteractiveSkill 
+                name="React.js" 
+                proficiency={92} 
+                category="Frontend"
+                description="Hooks, context, state management, performance optimization, and component architecture."
+              />
+              <InteractiveSkill 
+                name="Next.js" 
+                proficiency={88} 
+                category="Frontend"
+                description="SSR, SSG, API routes, middleware, and modern Next.js 15 features for full-stack applications."
+              />
+              <InteractiveSkill 
+                name="Tailwind CSS" 
+                proficiency={85} 
+                category="Frontend"
+                description="Utility-first CSS, responsive design, custom components, and modern styling patterns."
+              />
+              <InteractiveSkill 
+                name="Framer Motion" 
+                proficiency={75} 
+                category="Frontend"
+                description="Advanced animations, transitions, and interactive UI components with physics-based motion."
+              />
+            </div>
+          </div>
+
+          {/* Backend Skills */}
+          <div className="mb-12">
+            <h3 className="text-xl font-semibold mb-6 text-center text-gray-800 dark:text-gray-200">
+              ⚙️ Backend Development
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <InteractiveSkill 
+                name="Node.js" 
+                proficiency={87} 
+                category="Backend"
+                description="Express.js, RESTful APIs, middleware, authentication, and scalable backend architecture."
+              />
+              <InteractiveSkill 
+                name="Python" 
+                proficiency={82} 
+                category="Backend"
+                description="Flask, Django, data processing, AI integration, and automation scripting."
+              />
+              <InteractiveSkill 
+                name="Go" 
+                proficiency={78} 
+                category="Backend"
+                description="Concurrency, goroutines, web servers, and system programming with modern Go practices."
+              />
+              <InteractiveSkill 
+                name="C" 
+                proficiency={80} 
+                category="Backend"
+                description="System programming, memory management, and low-level optimization for performance-critical applications."
+              />
+            </div>
+          </div>
+
+          {/* Database & Tools */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6 text-center text-gray-800 dark:text-gray-200">
+              🗄️ Databases & DevOps
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <InteractiveSkill 
+                name="MongoDB" 
+                proficiency={85} 
+                category="Database"
+                description="NoSQL design, aggregation pipelines, indexing, and scalable document-based architectures."
+              />
+              <InteractiveSkill 
+                name="Supabase" 
+                proficiency={80} 
+                category="Database"
+                description="PostgreSQL, real-time subscriptions, auth, and modern backend-as-a-service solutions."
+              />
+              <InteractiveSkill 
+                name="Docker" 
+                proficiency={75} 
+                category="DevOps"
+                description="Containerization, multi-stage builds, orchestration, and development environment management."
+              />
+              <InteractiveSkill 
+                name="Git" 
+                proficiency={90} 
+                category="DevOps"
+                description="Version control, branching strategies, collaboration workflows, and advanced Git techniques."
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -330,45 +434,101 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20">
+      {/* Enhanced Contact Section */}
+      <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">
             Get In Touch
           </h2>
-          <div className="max-w-md mx-auto text-center">
-            <p className="text-gray-600 dark:text-gray-300 mb-8">
-              I'm always interested in hearing about new projects and opportunities.
-            </p>
-            <a
-              href="mailto:hamroun1969@gmail.com"
-              className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors mb-4"
-            >
-              Email Me
-            </a>
-            <div className="flex justify-center gap-6">
-              <a 
-                href="https://github.com/mohamedx2" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                </svg>
-                GitHub
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/mohamed-ali-hamroun-486573314/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white flex items-center gap-2"
-              >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-                LinkedIn
-              </a>
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+            I'm always interested in hearing about new projects and opportunities. 
+            Let's discuss how we can work together to bring your ideas to life!
+          </p>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Contact Form */}
+            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-800">
+              <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                Send me a message
+              </h3>
+              <InteractiveContactForm />
+            </div>
+            
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-800">
+                <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                  Let's Connect
+                </h3>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                      <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 dark:text-white">Email</p>
+                      <a href="mailto:hamroun1969@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        hamroun1969@gmail.com
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                      <svg className="w-6 h-6 text-gray-600 dark:text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 dark:text-white">GitHub</p>
+                      <a href="https://github.com/mohamedx2" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                        @mohamedx2
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                      <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 dark:text-white">LinkedIn</p>
+                      <a href="https://www.linkedin.com/in/mohamed-ali-hamroun-486573314/" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        Mohamed Ali Hamroun
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Quick Stats */}
+              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-800">
+                <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">
+                  Why Work With Me?
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">9+</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Years Coding</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-green-600 dark:text-green-400">15+</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">24h</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Response Time</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">100%</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Satisfaction</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -377,21 +537,6 @@ export default function Home() {
   );
 }
 
-function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
-  return (
-    <div className="p-6 bg-white dark:bg-gray-900 rounded-lg shadow-sm">
-      <h3 className="font-bold mb-4 text-gray-900 dark:text-white">{title}</h3>
-      <ul className="space-y-2">
-        {skills.map((skill) => (
-          <li key={skill} className="text-gray-600 dark:text-gray-300 flex items-center gap-2">
-            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-            {skill}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 function ProjectCard({ 
   title, 
