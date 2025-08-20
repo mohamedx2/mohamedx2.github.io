@@ -1,6 +1,8 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
+import { ThemeProvider } from '../components/ThemeProvider';
+import { Navigation } from '../components/Navigation';
 
 export const metadata: Metadata = {
   title: "Mohamed Ali | Full Stack Developer",
@@ -26,23 +28,12 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.svg" />
       </head>
       <body className="antialiased font-sans">
-        <nav className="fixed top-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
-          <div className="container mx-auto px-4 py-4">
-            <div className="flex justify-between items-center">
-              <a href="#" className="text-xl font-bold text-gray-800 dark:text-white">Mohamed Ali Hamroun</a>
-              <div className="hidden md:flex space-x-8">
-                <a href="#about" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">About</a>
-                <a href="#pfe" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">PFE</a>
-                <a href="#skills" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Skills</a>
-                <a href="#projects" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Projects</a>
-                <a href="#contact" className="text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-white">Contact</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-        <main>
-          {children}
-        </main>
+        <ThemeProvider>
+          <Navigation />
+          <main className="pt-20">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

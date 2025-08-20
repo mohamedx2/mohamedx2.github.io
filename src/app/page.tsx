@@ -2,33 +2,136 @@
  * Home page component
  */
 
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { HiDownload, HiMail } from 'react-icons/hi';
+import { TypingAnimation } from '../components/TypingAnimation';
+import { CurrentlyStatusWidget } from '../components/CurrentlyStatusWidget';
+
 export default function Home() {
+  const roles = [
+    'Full Stack Developer',
+    'Compiler Creator',
+    'Framework Architect',
+    'WebAssembly Enthusiast',
+    'Open Source Contributor'
+  ];
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-blue-900/20">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            rotate: [0, 180, 360],
+            opacity: [0.3, 0.1, 0.3],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            rotate: [360, 180, 0],
+            opacity: [0.2, 0.4, 0.2],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+        />
+      </div>
+
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Full Stack Developer
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-            22-year-old developer passionate about full-stack development, compiler creation, and innovative solutions
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="#projects"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors"
+      <section className="container mx-auto px-4 py-20 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center min-h-[80vh]">
+          {/* Main Content */}
+          <div className="lg:col-span-2 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-6"
             >
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="border border-blue-600 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 py-3 rounded-lg transition-colors"
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                className="w-24 h-24 lg:w-32 lg:h-32 mx-auto lg:mx-0 mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1"
+              >
+                <div className="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center text-4xl lg:text-5xl">
+                  👨‍💻
+                </div>
+              </motion.div>
+              
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Mohamed Ali
+                </span>
+              </h1>
+              
+              <div className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-700 dark:text-gray-300 mb-6 h-16">
+                <TypingAnimation
+                  texts={roles}
+                  className="text-blue-600 dark:text-blue-400"
+                  delay={2000}
+                  speed={80}
+                />
+              </div>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
             >
-              Contact Me
-            </a>
+              22-year-old passionate developer specializing in full-stack development, 
+              compiler creation, and innovative WebAssembly solutions. Building the future 
+              of web technology, one framework at a time.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
+              >
+                View Projects
+                <HiDownload className="w-5 h-5" />
+              </motion.a>
+              
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900 px-8 py-4 rounded-xl transition-all duration-300 font-medium"
+              >
+                <HiMail className="w-5 h-5" />
+                Contact Me
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* Status Widget */}
+          <div className="lg:col-span-1">
+            <CurrentlyStatusWidget />
           </div>
         </div>
       </section>
