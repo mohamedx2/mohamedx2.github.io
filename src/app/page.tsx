@@ -174,11 +174,11 @@ export default function Home() {
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600 dark:text-gray-300">Years of Experience</span>
-                      <span className="font-bold text-blue-600">9+</span>
+                      <span className="font-bold text-blue-600">2+</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600 dark:text-gray-300">Projects Completed</span>
-                      <span className="font-bold text-purple-600">50+</span>
+                      <span className="font-bold text-purple-600">10+</span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-gray-600 dark:text-gray-300">GitHub Since</span>
