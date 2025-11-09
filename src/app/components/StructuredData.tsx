@@ -4,30 +4,38 @@ export default function StructuredData() {
     "@type": "Person",
     "name": "Mohamed Ali Hamroun",
     "jobTitle": "Full Stack Developer",
-    "description": "22-year-old full-stack developer passionate about creating innovative solutions.",
+    "description": "22-year-old full-stack developer with 2 years of experience and 10+ completed projects. Specializing in React, Next.js, Node.js, and full-stack development.",
     "url": "https://www.mohamedalihamroun.me",
-    "image": "https://www.mohamedalihamroun.me/profile.jpg",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://www.mohamedalihamroun.me/profile.jpg",
+      "width": 1200,
+      "height": 1200
+    },
     "sameAs": [
       "https://github.com/mohamedx2",
       "https://linkedin.com/in/mohamedx2"
     ],
     "knowsAbout": [
+      "Full Stack Development",
       "JavaScript",
-      "TypeScript", 
+      "TypeScript",
       "React",
       "Next.js",
       "Node.js",
-      "Full Stack Development",
       "Web Development",
-      "Software Development"
+      "Software Development",
+      "Frontend Development",
+      "Backend Development"
     ],
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "University"
-    },
+    "yearsOfExperience": 2,
     "worksFor": {
       "@type": "Organization",
       "name": "Freelance Developer"
+    },
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "University"
     }
   };
 
