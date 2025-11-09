@@ -15,7 +15,6 @@ const inter = Inter({
 
 const baseUrl = 'https://www.mohamedalihamroun.me';
 const profileImage = 'https://www.mohamedalihamroun.me/profile.jpg';
-const socialCardImage = 'https://www.mohamedalihamroun.me/social-card.jpg';
 
 export const metadata: Metadata = {
   title: 'Mohamed Ali Hamroun | Full Stack Developer Portfolio',
@@ -58,13 +57,6 @@ export const metadata: Metadata = {
     url: baseUrl,
     siteName: 'Mohamed Ali Hamroun Portfolio',
     images: [
-      {
-        url: socialCardImage,
-        width: 1200,
-        height: 630,
-        alt: 'Mohamed Ali Hamroun - Full Stack Developer',
-        type: 'image/jpeg',
-      },
       {
         url: profileImage,
         width: 1200,
@@ -153,9 +145,9 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Mohamed Ali Hamroun" />
         
         {/* Open Graph Image Tags */}
-        <meta property="og:image" content={socialCardImage} />
+        <meta property="og:image" content={profileImage} />
         <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image:height" content="1200" />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:alt" content="Mohamed Ali Hamroun - Full Stack Developer" />
         
