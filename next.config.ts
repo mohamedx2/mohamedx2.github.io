@@ -6,7 +6,29 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
+    formats: ['image/avif', 'image/webp'],
+  },
+  headers: async () => {
+    return [
+      {
+        source: '/profile.jpg',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/jpeg'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          }
+        ]
+      }
+    ];
   },
   experimental: {
     // Reduce dev server warnings

@@ -8,7 +8,7 @@ import StructuredData from './components/StructuredData';
 const inter = Inter({ subsets: ['latin'] });
 
 const baseUrl = 'https://www.mohamedalihamroun.me';
-const profileImage = `${baseUrl}/profile.jpg`;
+const profileImage = 'https://www.mohamedalihamroun.me/profile.jpg';
 
 export const metadata: Metadata = {
   title: 'Mohamed Ali Hamroun | Full Stack Developer Portfolio',
