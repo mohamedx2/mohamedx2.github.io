@@ -56,6 +56,23 @@ const nextConfig: NextConfig = {
         ]
       },
       {
+        source: '/social-card.jpg',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/jpeg'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=604800'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          }
+        ]
+      },
+      {
         source: '/:path*.svg',
         headers: [
           {
