@@ -4,8 +4,14 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navigation from './components/Navigation';
 import StructuredData from './components/StructuredData';
+import PWAHandler from './pwa';
 
-const inter = Inter({ subsets: ['latin'] });
+// Optimize font loading with swap display strategy for better LCP
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto']
+});
 
 const baseUrl = 'https://www.mohamedalihamroun.me';
 const profileImage = 'https://www.mohamedalihamroun.me/profile.jpg';
@@ -107,6 +113,14 @@ export const metadata: Metadata = {
     statusBarStyle: 'black-translucent',
     title: 'Mohamed Ali Hamroun Portfolio',
   },
+  appLinks: {
+    ios: [
+      {
+        url: 'https://apps.apple.com/app/mohamedalihamroun/id123456789',
+        app_name: 'Mohamed Ali Hamroun Portfolio',
+      },
+    ],
+  },
   verification: {
     google: 'verification-code-here', // Add your Google verification code
   },
@@ -159,6 +173,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`} suppressHydrationWarning>
         <Navigation />
+        <PWAHandler />
         <main suppressHydrationWarning>
           {children}
         </main>

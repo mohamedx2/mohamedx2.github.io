@@ -14,9 +14,12 @@ img {
   max-width: 100%;
   height: auto !important;
 }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Reduce motion for better performance */
+  --animation-duration: 0.3s;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,37 +29,52 @@ img {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom animations for the enhanced profile image */
+/* Optimized animations - reduce motion and complexity */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
+    opacity: 1;
   }
   50% {
-    transform: translateY(-10px) rotate(5deg);
+    transform: translateY(-4px);
+    opacity: 0.95;
   }
 }
 
 @keyframes float-delay {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-8px) rotate(-3deg);
+    transform: translateY(-3px);
   }
 }
 
 @keyframes float-delay-2 {
   0%, 100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px) rotate(8deg);
+    transform: translateY(-5px);
   }
 }
 
@@ -65,10 +83,10 @@ body {
     transform: rotate(0deg);
   }
   25% {
-    transform: rotate(20deg);
+    transform: rotate(10deg);
   }
   75% {
-    transform: rotate(-10deg);
+    transform: rotate(-5deg);
   }
 }
 
@@ -81,24 +99,97 @@ body {
   }
 }
 
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Optimized animation classes - will-change for GPU acceleration */
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-float-delay {
-  animation: float-delay 4s ease-in-out infinite;
+  animation: float-delay 3s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-float-delay-2 {
-  animation: float-delay-2 5s ease-in-out infinite;
+  animation: float-delay-2 3.5s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-wave {
-  animation: wave 2s ease-in-out infinite;
+  animation: wave 1.5s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
+  animation: spin-slow 30s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.animate-pulse {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-ping {
+  animation: pulse 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Performance optimizations */
+.contain-layout {
+  contain: layout style paint;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+/* Smooth scrolling with performance in mind */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Optimize links for touch targets */
+a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Remove default button styling for better performance */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Optimize form elements */
+input,
+textarea,
+select {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reduce layout thrashing with content-visibility */
+[data-content-visible="false"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
 }
 
 /* Glassmorphism effects */

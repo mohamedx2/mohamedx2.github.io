@@ -8,9 +8,36 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
     formats: ['image/avif', 'image/webp'],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   headers: async () => {
     return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=()'
+          }
+        ]
+      },
       {
         source: '/profile.jpg',
         headers: [
@@ -27,48 +54,80 @@ const nextConfig: NextConfig = {
             value: 'nosniff'
           }
         ]
+      },
+      {
+        source: '/:path*.svg',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/svg+xml'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        source: '/service-worker.js',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/javascript'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=0, must-revalidate'
+          }
+        ]
+      },
+      {
+        source: '/manifest.json',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/manifest+json'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400'
+          }
+        ]
       }
     ];
   },
+  swcMinify: true,
   experimental: {
-    // Reduce dev server warnings
-    optimizePackageImports: ['@heroicons/react']
+    optimizePackageImports: ['@heroicons/react'],
+    optimizeCss: true,
   },
-  // Additional performance optimizations
+  // Performance optimizations
   poweredByHeader: false,
   compress: true,
-  // Reduce source map related warnings
   productionBrowserSourceMaps: false,
-  // Suppress webpack warnings in development
   webpack: (config, { dev }) => {
     if (dev) {
-      // Suppress noisy webpack warnings
       config.infrastructureLogging = {
         level: 'error',
       };
       
-      // Reduce file system warnings
       config.watchOptions = {
         ignored: /node_modules/,
-      };
-      
-      // Suppress hydration warnings in development
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        'react-dom$': 'react-dom/profiling',
-        'scheduler/tracing': 'scheduler/tracing-profiling',
       };
     }
     return config;
   },
-  // Suppress Next.js warnings
   logging: {
     fetches: {
       fullUrl: false,
     },
   },
-  // Disable strict mode to reduce hydration sensitivity
   reactStrictMode: false,
+  // Optimize for Core Web Vitals
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
 };
 
 export default nextConfig;
