@@ -104,9 +104,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: 'any' }
     ],
-    apple: { url: '/favicon.svg' }
+    apple: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
   },
   appleWebApp: {
     capable: true,
@@ -164,7 +165,6 @@ export default function RootLayout({
         <meta name="copyright" content="Mohamed Ali Hamroun" />
         <meta name="language" content="English" />
         
-        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
         <link rel="canonical" href={baseUrl} />

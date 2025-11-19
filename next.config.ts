@@ -56,6 +56,19 @@ const nextConfig: NextConfig = {
         ]
       },
       {
+        source: '/favicon.svg',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'image/svg+xml'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
         source: '/social-card.jpg',
         headers: [
           {
