@@ -139,6 +139,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="description" content="22-year-old full-stack developer with 2 years of experience. Explore my portfolio with 10+ projects in React, Next.js, Node.js, and more." />
+        <meta name="google-site-verification" content="OQlj2Ur-U8IQLV5YDw7eeIUJcf_WMhwXkX63br52oYY" />
         <meta name="theme-color" content="#ffffff" />
         <meta name="color-scheme" content="light dark" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
