@@ -126,7 +126,7 @@ const nextConfig: NextConfig = {
       }
     ];
   },
-  swcMinify: true,
+
   experimental: {
     optimizePackageImports: ['@heroicons/react'],
     optimizeCss: true,
@@ -140,7 +140,7 @@ const nextConfig: NextConfig = {
       config.infrastructureLogging = {
         level: 'error',
       };
-      
+
       config.watchOptions = {
         ignored: /node_modules/,
       };
