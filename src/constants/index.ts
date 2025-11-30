@@ -81,16 +81,14 @@ export const Skill_data = [
 
 export const Socials = [
     {
-        name: "Discord",
-        src: "/instagram.svg",
+        name: "Github",
+        src: "/globe.svg",
+        url: "https://github.com/mohamedx2",
     },
     {
-        name: "Facebook",
-        src: "/facebook.svg",
-    },
-    {
-        name: "Instagram",
-        src: "/discord.svg",
+        name: "LinkedIn",
+        src: "/globe.svg",
+        url: "https://www.linkedin.com/in/mohamed-ali-hamroun-486573314/",
     },
 ];
 
@@ -146,12 +144,6 @@ export const Frontend_skill = [
     {
         skill_name: "Type Script",
         Image: "/ts.png",
-        width: 80,
-        height: 80,
-    },
-    {
-        skill_name: "Next js 13",
-        Image: "/next.png",
         width: 80,
         height: 80,
     },
@@ -222,6 +214,15 @@ export const Full_stack = [
         height: 70,
     },
     {
+        skill_name: "Next js 13",
+        Image: "/next.png",
+        width: 80,
+        height: 80,
+    },
+];
+
+export const Other_skill = [
+    {
         skill_name: "Docker",
         Image: "/docker.webp",
         width: 70,
@@ -233,9 +234,6 @@ export const Full_stack = [
         width: 50,
         height: 50,
     },
-];
-
-export const Other_skill = [
     {
         skill_name: "Go",
         Image: "/go.png",

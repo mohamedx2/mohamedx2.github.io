@@ -4,7 +4,7 @@ import ProjectCard from "../sub/ProjectCard";
 const Projects = () => {
     const projects = [
         {
-            src: "/NextWebsite.png",
+            src: "/project-dbgo.svg",
             title: "DBGO - Lightweight Database System",
             description: "A simple yet powerful database system written in Go featuring ACID-like transactions, data validation, thread-safe operations, and cross-platform support.",
             tags: ["Go", "Node.js", "REST API", "Database", "CLI"],
@@ -12,7 +12,7 @@ const Projects = () => {
             demo: "https://dbgo.vercel.app/",
         },
         {
-            src: "/CardImage.png",
+            src: "/project-ecommerce.svg",
             title: "Modern E-commerce Platform",
             description: "Full-featured e-commerce platform with Google OAuth, real-time cart management, admin dashboard, analytics, and secure payment integration.",
             tags: ["Next.js", "TypeScript", "MongoDB", "NextUI", "Next-Auth"],
@@ -20,7 +20,7 @@ const Projects = () => {
             demo: "https://ecommerce-ruddy-psi.vercel.app/",
         },
         {
-            src: "/SpaceWebsite.png",
+            src: "/project-megatel.svg",
             title: "Mega-Tel Web Application",
             description: "A robust MERN stack application designed for managing telecommunications services with real-time data handling and secure authentication.",
             tags: ["MERN", "Real-time Data", "Authentication", "MongoDB", "React"],
@@ -28,7 +28,7 @@ const Projects = () => {
             demo: "https://mega-tel.surge.sh/",
         },
         {
-            src: "/NextWebsite.png",
+            src: "/project-notes.svg",
             title: "Note-Taking Application",
             description: "A modern note-taking web app with drag-and-drop functionality, NextAuth.js authentication, and Supabase SQL backend.",
             tags: ["Next.js", "Framer Motion", "NextAuth", "Supabase", "TypeScript"],
@@ -36,7 +36,7 @@ const Projects = () => {
             demo: "https://dnd-notes-with-next-auth-supabase-sql.vercel.app/",
         },
         {
-            src: "/CardImage.png",
+            src: "/project-compiler.svg",
             title: "AI-Powered Online Compiler",
             description: "An online compiler with integrated AI to help clients learn programming languages. Deployed using Flask for robust backend support.",
             tags: ["Flask", "AI Integration", "Compiler Design", "Python"],
@@ -44,7 +44,7 @@ const Projects = () => {
             demo: "https://online-compiler-flask.onrender.com/",
         },
         {
-            src: "/SpaceWebsite.png",
+            src: "/project-booking.svg",
             title: "Hotel & Coffee Table Reservation System",
             description: "A collaborative MERN stack project enabling room and table reservations with a user-friendly interface and secure database operations.",
             tags: ["MERN Stack", "MongoDB", "Express", "React"],

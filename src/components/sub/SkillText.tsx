@@ -1,33 +1,54 @@
 "use client"
 import React from 'react'
 import { motion } from 'framer-motion'
-import { slideInFromLeft, slideInFromRight, slideInFromTop } from '@/utils/motion'
 import { SparklesIcon } from '@heroicons/react/24/solid'
 
 const SkillText = () => {
     return (
-        <div className='w-full h-auto flex flex-col items-center justify-center'>
+        <div className='relative z-10 w-full h-auto flex flex-col items-center justify-center mb-8'>
             <motion.div
-                variants={slideInFromTop()}
-                className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9]"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 mb-6"
             >
-                <SparklesIcon className="text-[#b49bff] mr-[10px] h-5 w-5" />
-                <h1 className="Welcome-text text-[13px]">
-                    Think better with Next js 13
-                </h1>
+                <SparklesIcon className="text-purple-400 h-5 w-5 animate-pulse" />
+                <span className="text-sm font-medium text-purple-300">
+                    Full Stack Developer
+                </span>
             </motion.div>
-            <motion.div
-                variants={slideInFromLeft(0.5)}
-                className='text-[30px] text-white font-medium mt-[10px] text-center mb-[15px]'
+            
+            <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                viewport={{ once: true }}
+                className='text-4xl md:text-5xl font-bold text-center mb-4'
             >
-                Making apps with modern technologies
-            </motion.div>
-            <motion.div
-                variants={slideInFromRight(0.5)}
-                className='cursive text-[20px] text-gray-200 mb-10 mt-[10px] text-center'
+                <span className="text-white">My </span>
+                <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    Tech Stack
+                </span>
+            </motion.h2>
+            
+            <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                viewport={{ once: true }}
+                className='text-lg text-gray-400 text-center max-w-xl'
             >
-                Never miss a task, deadline or idea
-            </motion.div>
+                Building modern, scalable applications with cutting-edge technologies
+            </motion.p>
+            
+            {/* Decorative Line */}
+            <motion.div 
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mt-8 h-1 w-24 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full"
+            />
         </div>
     )
 }
