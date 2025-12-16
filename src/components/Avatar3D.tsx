@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Sphere, MeshDistortMaterial, Float } from '@react-three/drei';
+import { OrbitControls, MeshDistortMaterial, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 function AnimatedSphere() {
@@ -17,7 +17,8 @@ function AnimatedSphere() {
 
   return (
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-      <Sphere ref={meshRef} args={[1, 100, 100]} scale={2}>
+      <mesh ref={meshRef} scale={2}>
+        <sphereGeometry args={[1, 100, 100]} />
         <MeshDistortMaterial
           color="#4F46E5"
           attach="material"
@@ -26,7 +27,7 @@ function AnimatedSphere() {
           roughness={0.2}
           metalness={0.8}
         />
-      </Sphere>
+      </mesh>
     </Float>
   );
 }

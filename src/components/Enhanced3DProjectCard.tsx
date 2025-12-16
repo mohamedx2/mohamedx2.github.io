@@ -3,7 +3,7 @@
 import { useState, useRef, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Box } from '@react-three/drei';
+import { Float } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface Enhanced3DProjectCardProps {
@@ -27,9 +27,10 @@ function FloatingBox({ color }: { color: string }) {
 
   return (
     <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
-      <Box ref={meshRef} args={[1, 1, 1]}>
+      <mesh ref={meshRef}>
+        <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
-      </Box>
+      </mesh>
     </Float>
   );
 }
