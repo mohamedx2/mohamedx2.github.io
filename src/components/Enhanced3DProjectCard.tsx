@@ -1,7 +1,10 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, Suspense } from 'react';
 import { motion } from 'framer-motion';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, Box } from '@react-three/drei';
+import * as THREE from 'three';
 
 interface Enhanced3DProjectCardProps {
   title: string;
@@ -10,6 +13,36 @@ interface Enhanced3DProjectCardProps {
   githubLink?: string;
   demoLink?: string;
   featured?: boolean;
+}
+
+function FloatingBox({ color }: { color: string }) {
+  const meshRef = useRef<THREE.Mesh>(null);
+
+  useFrame((state) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.x = state.clock.elapsedTime * 0.3;
+      meshRef.current.rotation.y = state.clock.elapsedTime * 0.4;
+    }
+  });
+
+  return (
+    <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+      <Box ref={meshRef} args={[1, 1, 1]}>
+        <meshStandardMaterial color={color} metalness={0.8} roughness={0.2} />
+      </Box>
+    </Float>
+  );
+}
+
+function Scene3D({ featured }: { featured: boolean }) {
+  return (
+    <>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={1} />
+      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#9333EA" />
+      <FloatingBox color={featured ? "#9333EA" : "#4F46E5"} />
+    </>
+  );
 }
 
 export default function Enhanced3DProjectCard({ 
@@ -58,8 +91,17 @@ export default function Enhanced3DProjectCard({
         featured ? 'min-h-[400px]' : 'min-h-[350px]'
       }`}>
         
-        {/* Header with gradient */}
-        <div className={`h-2 bg-gradient-to-r ${
+        {/* 3D Canvas Header */}
+        <div className="h-32 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-purple-900/20 relative overflow-hidden">
+          <Suspense fallback={<div className="w-full h-full bg-gradient-to-r from-blue-500 to-purple-500" />}>
+            <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
+              <Scene3D featured={featured} />
+            </Canvas>
+          </Suspense>
+        </div>
+        
+        {/* Header gradient strip */}
+        <div className={`h-1 bg-gradient-to-r ${
           featured 
             ? 'from-purple-500 via-pink-500 to-red-500' 
             : 'from-blue-500 to-purple-500'
@@ -69,7 +111,7 @@ export default function Enhanced3DProjectCard({
         <div className="p-6 relative">
           {/* Floating badge for featured projects */}
           {featured && (
-            <div className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+            <div className="absolute -top-2 -right-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold z-10">
               ⭐ Featured
             </div>
           )}
