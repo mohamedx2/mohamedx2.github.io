@@ -462,6 +462,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Workshops Section */}
+      <section id="workshops" className="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900 dark:text-white">
+            Workshops & Training
+          </h2>
+          <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+            Sharing knowledge and expertise through workshops and training sessions
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <WorkshopCard
+              title="Workshop Title"
+              description="Description of the workshop, topics covered, and key takeaways for participants."
+              date="Coming Soon"
+              imageUrl="/workshop-placeholder.jpg"
+              participants="TBD"
+            />
+            {/* Additional workshop cards will be added here */}
+          </div>
+        </div>
+      </section>
+
       {/* Enhanced Contact Section */}
       <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20">
         <div className="container mx-auto px-4">
@@ -660,6 +682,65 @@ function FeatureCard({ icon, title, desc }: { icon: string; title: string; desc:
       </div>
       <h4 className="font-semibold text-lg text-gray-900 dark:text-white mb-2">{title}</h4>
       <p className="text-gray-600 dark:text-gray-300">{desc}</p>
+    </div>
+  );
+}
+
+function WorkshopCard({ 
+  title, 
+  description, 
+  date,
+  imageUrl,
+  participants 
+}: { 
+  title: string;
+  description: string;
+  date: string;
+  imageUrl: string;
+  participants: string;
+}) {
+  return (
+    <div className="group bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-800 transition-all duration-300 hover:shadow-2xl hover:scale-105">
+      {/* Workshop Image */}
+      <div className="relative h-48 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30 overflow-hidden">
+        {imageUrl && imageUrl !== '/workshop-placeholder.jpg' ? (
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-110 transition-transform duration-300"
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full">
+            <div className="text-6xl">🎓</div>
+          </div>
+        )}
+        {/* Date badge */}
+        <div className="absolute top-4 right-4 bg-white dark:bg-gray-900 px-3 py-1 rounded-full shadow-lg">
+          <span className="text-sm font-semibold text-purple-600 dark:text-purple-400">{date}</span>
+        </div>
+      </div>
+      
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="font-bold text-xl mb-3 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+          {description}
+        </p>
+        
+        {/* Participants info */}
+        <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+          <span>{participants}</span>
+        </div>
+      </div>
+      
+      {/* Hover gradient effect */}
+      <div className="h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
     </div>
   );
 }

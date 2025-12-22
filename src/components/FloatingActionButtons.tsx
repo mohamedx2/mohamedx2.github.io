@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronUp, Github, Mail, FileText, User, Code, Briefcase } from 'lucide-react';
+import { ChevronUp, Github, Mail, FileText, User, Code, Briefcase, GraduationCap } from 'lucide-react';
 
 export default function FloatingActionButtons() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -20,6 +20,7 @@ export default function FloatingActionButtons() {
     { icon: Code, label: 'Skills', action: () => scrollToSection('skills'), color: 'bg-purple-500 hover:bg-purple-600' },
     { icon: Briefcase, label: 'Projects', action: () => scrollToSection('projects'), color: 'bg-green-500 hover:bg-green-600' },
     { icon: FileText, label: 'PFE', action: () => scrollToSection('pfe'), color: 'bg-orange-500 hover:bg-orange-600' },
+    { icon: GraduationCap, label: 'Workshops', action: () => scrollToSection('workshops'), color: 'bg-pink-500 hover:bg-pink-600' },
     { icon: Mail, label: 'Contact', action: () => scrollToSection('contact'), color: 'bg-red-500 hover:bg-red-600' },
     { icon: Github, label: 'GitHub', action: () => window.open('https://github.com/mohamedx2', '_blank'), color: 'bg-gray-800 hover:bg-gray-900' },
   ];
