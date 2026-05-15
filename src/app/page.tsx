@@ -191,7 +191,7 @@ export default function Home() {
                 <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
                 <div className="w-2 h-2 rounded-full bg-green-500"></div>
               </div>
-              <p className="text-on-tertiary-container">// BARAQEX_CORE.ts</p>
+              <p className="text-on-tertiary-container">{'// BARAQEX_CORE.ts'}</p>
               <p className="text-primary-fixed">export const reactive = (target) =&gt; {'{'}</p>
               <p className="pl-4">return new Proxy(target, {'{'}</p>
               <p className="pl-8">set(obj, prop, val) {'{'}</p>
