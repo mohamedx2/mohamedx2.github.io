@@ -49,6 +49,7 @@ export type PortfolioData = {
       date?: string;
       description: string;
       video?: string;
+      link?: string;
     }[];
   }[];
   hackathons: {
