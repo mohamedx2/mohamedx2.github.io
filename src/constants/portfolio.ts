@@ -118,7 +118,10 @@ export const PORTFOLIO_DATA: PortfolioData = {
       description: "Built an enterprise document management system with local AI processing using Ollama and Mistral 7B. Implemented document extraction, AI summarization, access control, audit logging, and Docker-based deployment with GPU acceleration support.",
       skills: ["Ollama", "Mistral 7B", "Docker", "Access Control", "GPU Acceleration"],
       imageSrc: "/Capture d'écran 2026-07-18 223432.png",
-      highlight: false
+      highlight: false,
+      links: [
+        { label: "REPOSITORY", url: "https://github.com/mohamedx2/coffre-fort-documentaire" }
+      ]
     },
     {
       id: "renault",
@@ -128,7 +131,10 @@ export const PORTFOLIO_DATA: PortfolioData = {
       skills: ["Nx", "OCR", "Node.js", "Multi-Tenant"],
       imageSrc: "/renault.png",
       imageClass: "w-full aspect-[4/3] object-cover object-left-top",
-      highlight: false
+      highlight: false,
+      links: [
+        { label: "REPOSITORY", url: "https://github.com/mohamedx2/modulisation-project" }
+      ]
     },
     {
       id: "whiteboard",
@@ -138,7 +144,10 @@ export const PORTFOLIO_DATA: PortfolioData = {
       skills: ["Socket.io", "Event Sourcing", "Redis", "PostgreSQL", "Real-Time Sync"],
       imageSrc: "/Capture d'écran 2026-07-18 205105.png",
       highlight: false,
-      reverseLayout: true
+      reverseLayout: true,
+      links: [
+        { label: "REPOSITORY", url: "https://github.com/mohamedx2/white-board" }
+      ]
     },
     {
       id: "n8n-generator",
@@ -147,7 +156,10 @@ export const PORTFOLIO_DATA: PortfolioData = {
       description: "Developed an AI application converting natural language prompts into complete n8n Docker projects with generated workflows, configurations, and environment setup using local LLM inference.",
       skills: ["Python", "n8n", "LLM Inference", "Docker", "Workflow Automation"],
       imageSrc: "/Capture d'écran 2026-07-18 223901.png",
-      highlight: false
+      highlight: false,
+      links: [
+        { label: "REPOSITORY", url: "https://github.com/mohamedx2/sdk-agent" }
+      ]
     },
     {
       id: "dbgo",
