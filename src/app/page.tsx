@@ -190,8 +190,8 @@ export default function Home() {
                             <p className="font-label-caps text-[9px] text-on-secondary-container">{item.date}</p>
                           )}
                           <p className="font-body-md text-[13px] text-on-surface-variant mt-1">{item.description}</p>
-                          {'link' in item && item.link && (
-                            <a href={item.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-1 font-label-caps text-[10px] border border-primary px-2 py-0.5 hover:bg-primary hover:text-on-primary transition-colors">
+                          {'link' in item && (item as { link?: string }).link && (
+                            <a href={(item as { link: string }).link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-1 font-label-caps text-[10px] border border-primary px-2 py-0.5 hover:bg-primary hover:text-on-primary transition-colors">
                               VIEW BADGE →
                             </a>
                           )}
