@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { PORTFOLIO_DATA } from '../constants/portfolio';
 import ReelVideo from './components/ReelVideo';
+import ProjectTag from './components/ProjectTag';
 
 export default function Home() {
   const { header, profile, projects, education, achievements, hackathons, openSource, technicalLedger, focusAreas, socials, copyright, footerTags } = PORTFOLIO_DATA;
@@ -69,7 +70,7 @@ export default function Home() {
                           <div>
                             <div className="flex justify-between items-start">
                               <h4 className="font-headline-md text-headline-md">{project.title}</h4>
-                              <span className="font-label-caps text-[10px] border border-primary px-2">{project.tag}</span>
+                              <ProjectTag tag={project.tag} highlight={project.highlight} />
                             </div>
                             <p className="mt-2 font-body-md text-on-surface-variant">{project.description}</p>
                           </div>
@@ -95,8 +96,8 @@ export default function Home() {
                     ) : project.highlight ? (
                       <>
                         <div className="col-span-12 md:col-span-4">
-                          <div className="bg-primary aspect-video flex items-center justify-center text-on-primary font-display-lg text-4xl border border-primary">{project.initial}</div>
-                          <p className="font-label-caps text-[9px] mt-2 italic text-center">{project.badge}</p>
+                          <img alt={project.title} className={`border border-primary grayscale group-hover:grayscale-0 transition-all ${project.imageClass || 'w-full aspect-video object-cover object-center'}`} src={project.imageSrc || ""} />
+                          {project.badge && <p className="font-label-caps text-[9px] mt-2 italic text-center">{project.badge}</p>}
                         </div>
                         <div className="col-span-12 md:col-span-8 flex flex-col justify-between">
                           <div>
@@ -131,7 +132,7 @@ export default function Home() {
                           <div>
                             <div className="flex justify-between items-start">
                               <h4 className="font-headline-md text-headline-md">{project.title}</h4>
-                              <span className="font-label-caps text-[10px] border border-primary px-2">{project.tag}</span>
+                              <ProjectTag tag={project.tag} highlight={project.highlight} />
                             </div>
                             <p className="mt-2 font-body-md text-on-surface-variant">{project.description}</p>
                           </div>
@@ -190,6 +191,9 @@ export default function Home() {
                             <p className="font-label-caps text-[9px] text-on-secondary-container">{item.date}</p>
                           )}
                           <p className="font-body-md text-[13px] text-on-surface-variant mt-1">{item.description}</p>
+                          {'image' in item && (item as { image?: string }).image && (
+                            <img src={(item as { image: string }).image} alt={item.title} className="mt-2 w-full border border-primary grayscale hover:grayscale-0 transition-all" />
+                          )}
                           {'link' in item && (item as { link?: string }).link && (
                             <a href={(item as { link: string }).link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-1 font-label-caps text-[10px] border border-primary px-2 py-0.5 hover:bg-primary hover:text-on-primary transition-colors">
                               VIEW BADGE →
@@ -241,9 +245,9 @@ export default function Home() {
               <h3 className="font-label-caps text-label-caps bg-primary text-on-primary px-2 py-1 mb-4 inline-block">OPEN SOURCE CONTRIBUTIONS</h3>
               <div className="flex flex-wrap gap-2">
                 {openSource.map((project, idx) => (
-                  <span key={idx} className="border border-primary px-2 py-1 font-label-caps text-[10px]">
-                    {project}
-                  </span>
+                  <a key={idx} href={project.url} target="_blank" rel="noopener noreferrer" className="border border-primary px-2 py-1 font-label-caps text-[10px] hover:bg-primary hover:text-on-primary transition-colors">
+                    {project.name} →
+                  </a>
                 ))}
               </div>
             </section>

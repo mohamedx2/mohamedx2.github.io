@@ -40,6 +40,7 @@ export type PortfolioData = {
     institution: string;
     location: string;
     degree: string;
+    date?: string;
     highlight?: boolean;
   }[];
   achievements: {
@@ -50,6 +51,7 @@ export type PortfolioData = {
       description: string;
       video?: string;
       link?: string;
+      image?: string;
     }[];
   }[];
   hackathons: {
@@ -59,7 +61,10 @@ export type PortfolioData = {
     date: string;
     image: string;
   }[];
-  openSource: string[];
+  openSource: {
+    name: string;
+    url: string;
+  }[];
   technicalLedger: {
     category: string;
     skills: string[];
@@ -79,18 +84,18 @@ export const PORTFOLIO_DATA: PortfolioData = {
     established: "2024",
     title: "News of the Day",
     edition: "PORTFOLIO EDITION",
-    volume: "VOL. 01 • NO. 2024",
-    location: "MAHDIA, TUNISIA",
+    volume: "VOL. 02 • NO. 2026",
+    location: "SUSSE, TUNISIA",
   },
   profile: {
     name: "MOHAMED ALI HAMROUN",
     title: "Full-Stack Developer & Systems Engineer",
-    imageCaption: "Fig 1.0: Mohamed Ali Hamroun — Software Engineer & Researcher.",
-    breakingText: "BREAKING: THE GRADUATE",
+    imageCaption: "Fig 1.0: Mohamed Ali Hamroun — Software Engineer & Systems Architect.",
+    breakingText: "ENGINEERING GRADUATE — CLASS OF 2026",
     imageSrc: "/profile.jpg",
     paragraphs: [
-      "I am a developer deeply passionate about building scalable web applications and exploring the intricate world of low-level engineering. My journey is defined by a relentless curiosity for how things work under the hood, leading me to master languages like Go and Nim alongside modern web stacks. I specialize in bridge engineering between high-level application logic and low-level performance optimization.",
-      "Beyond standard development, I focus on framework engineering, LSM trees, and AI-driven automation. My academic tenure at the Higher Institute of Computer Science in Mahdia has been a crucible for refining my understanding of distributed systems and compiler internals. I aim to build resilient, elegant architectures that solve complex industrial challenges."
+      "Full-stack developer and systems engineer with a passion for building things from the ground up — from custom JavaScript frameworks to lightweight database engines in Go. I thrive at the intersection of high-level application architecture and low-level performance optimization, where most engineers rarely venture.",
+      "My work spans framework engineering, LSM-tree storage internals, real-time collaboration systems, and AI-driven automation. With multiple hackathon victories, open-source projects on npm, and hands-on experience leading GDG On Campus EPI as a Core Team Member, I bring both technical depth and community-driven leadership to every challenge."
     ],
     quote: "Engineering is not just about solving problems; it's about the elegance of the architecture that survives them."
   },
@@ -98,25 +103,26 @@ export const PORTFOLIO_DATA: PortfolioData = {
     {
       id: "baraqex",
       title: "Baraqex — Full-Stack JavaScript Framework",
-      tag: "OPEN SOURCE",
-      badge: "FRAMEWORK ENGINEERING",
+      tag: "FLAGSHIP PROJECT",
+      badge: "FRAMEWORK ENGINEERING • OPEN SOURCE",
       initial: "B",
-      description: "Designed and implemented a custom JavaScript/TypeScript framework providing JSX rendering, SSR, hydration, file-based routing, and WebAssembly integration. Focused on performance, developer experience, and modern framework architecture.",
-      skills: ["TypeScript", "JSX", "SSR", "WebAssembly", "File-Based Routing"],
+      description: "Designed and implemented a custom JavaScript/TypeScript framework from scratch featuring a reactive JSX rendering engine, server-side rendering with hydration, file-based routing, and WebAssembly integration. Published on npm with live documentation.",
+      skills: ["TypeScript", "JSX Engine", "SSR", "WebAssembly", "File-Based Routing", "Reactivity"],
       imageSrc: "/logo.png",
       imageClass: "w-full h-auto object-contain bg-[#0F1115] p-2",
-      highlight: false,
+      highlight: true,
       links: [
         { label: "LIVE", url: "https://baraqex.tech" },
-        { label: "NPM", url: "https://npmjs.com/baraqex" }
+        { label: "NPM", url: "https://npmjs.com/baraqex" },
+        { label: "GITHUB", url: "https://github.com/mohamedx2/baraqex" }
       ]
     },
     {
       id: "coffre-fort",
       title: "Coffre-Fort Documentaire — AI Secure Document Platform",
       tag: "AI & SECURITY",
-      description: "Built an enterprise document management system with local AI processing using Ollama and Mistral 7B. Implemented document extraction, AI summarization, access control, audit logging, and Docker-based deployment with GPU acceleration support.",
-      skills: ["Ollama", "Mistral 7B", "Docker", "Access Control", "GPU Acceleration"],
+      description: "Enterprise document management system with fully local AI processing. Runs Ollama with Mistral 7B for document extraction, AI-powered summarization, granular access control, and audit logging. Dockerized with GPU acceleration support for production deployment.",
+      skills: ["Ollama", "Mistral 7B", "Docker", "Access Control", "GPU Acceleration", "Audit Logging"],
       imageSrc: "/Capture d'écran 2026-07-18 223432.png",
       highlight: false,
       links: [
@@ -127,8 +133,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "renault",
       title: "Renault Axis — OCR & Enterprise Platform",
       tag: "ENTERPRISE SAAS",
-      description: "Developed OCR processing pipelines and enterprise features for a multi-tenant platform using modern web technologies. Integrated document processing workflows and scalable backend architecture.",
-      skills: ["Nx", "OCR", "Node.js", "Multi-Tenant"],
+      description: "Multi-tenant enterprise platform with OCR processing pipelines for industrial document workflows. Built on Nx monorepo architecture for scalable backend services and modular feature delivery.",
+      skills: ["Nx Monorepo", "OCR Pipelines", "Node.js", "Multi-Tenant", "Enterprise Architecture"],
       imageSrc: "/renault.png",
       imageClass: "w-full aspect-[4/3] object-cover object-left-top",
       highlight: false,
@@ -140,8 +146,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "whiteboard",
       title: "Collaborative Whiteboard SaaS",
       tag: "REAL-TIME COLLABORATION",
-      description: "Created a real-time collaborative drawing platform inspired by Excalidraw. Implemented Socket.io synchronization, event sourcing, undo/redo history, Redis caching, authentication, and PostgreSQL persistence.",
-      skills: ["Socket.io", "Event Sourcing", "Redis", "PostgreSQL", "Real-Time Sync"],
+      description: "Real-time collaborative drawing platform inspired by Excalidraw. Features Socket.io bi-directional sync, event sourcing for state management, full undo/redo history, Redis caching, user authentication, and PostgreSQL persistence.",
+      skills: ["Socket.io", "Event Sourcing", "Redis", "PostgreSQL", "Authentication", "Real-Time Sync"],
       imageSrc: "/Capture d'écran 2026-07-18 205105.png",
       highlight: false,
       reverseLayout: true,
@@ -153,7 +159,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "n8n-generator",
       title: "N8N Project Generator — AI Workflow Builder",
       tag: "AI AUTOMATION",
-      description: "Developed an AI application converting natural language prompts into complete n8n Docker projects with generated workflows, configurations, and environment setup using local LLM inference.",
+      description: "AI-powered application that converts natural language prompts into complete n8n Docker projects — generating workflows, environment configs, and deployment setups using local LLM inference.",
       skills: ["Python", "n8n", "LLM Inference", "Docker", "Workflow Automation"],
       imageSrc: "/Capture d'écran 2026-07-18 223901.png",
       highlight: false,
@@ -165,20 +171,21 @@ export const PORTFOLIO_DATA: PortfolioData = {
       id: "dbgo",
       title: "DBGO — Lightweight Database Engine",
       tag: "SYSTEMS PROGRAMMING",
-      description: "Implemented a custom database engine in Go supporting transactions, REST APIs, and command-line tools.",
-      skills: ["Go", "Transactions", "REST API", "CLI Tools"],
+      description: "Custom database engine written in Go with transaction support, REST API interface, and CLI tooling. Implements storage persistence and indexing from first principles.",
+      skills: ["Go", "Transactions", "REST API", "CLI Tools", "Storage Engine"],
       imageSrc: "/Capture d'écran 2026-07-18 210504.png",
       highlight: false,
       links: [
-        { label: "LIVE", url: "https://dbgo.vercel.app" }
+        { label: "LIVE", url: "https://dbgo.vercel.app" },
+        { label: "GITHUB", url: "https://github.com/mohamedx2/dbgo" }
       ]
     },
     {
       id: "hamroun-express",
       title: "Hamroun-Express — Node.js Framework",
       tag: "FRAMEWORK ENGINEERING",
-      description: "Created a lightweight Express-like backend framework with routing, middleware architecture, and extensibility.",
-      skills: ["Node.js", "Routing", "Middleware", "TypeScript"],
+      description: "Lightweight Express-like backend framework featuring custom routing, middleware pipeline architecture, and extensibility hooks. Designed for minimal overhead with maximum developer ergonomics.",
+      skills: ["Node.js", "Routing", "Middleware", "TypeScript", "Framework Design"],
       imageSrc: "/Capture d'écran 2026-07-18 223020.png",
       highlight: false,
       links: [
@@ -191,18 +198,21 @@ export const PORTFOLIO_DATA: PortfolioData = {
       institution: "EPI — École Polytechnique Internationale Privée de Sousse",
       location: "Sousse, Tunisia",
       degree: "Engineering Degree in Computer Science",
+      date: "2023 — Present",
       highlight: true
     },
     {
       institution: "Higher Institute of Computer Science",
       location: "Mahdia, Tunisia",
       degree: "Bachelor's Degree in Computer Science — Graduated with Honors",
+      date: "2020 — 2023",
       highlight: false
     },
     {
       institution: "Lycée Aboulkacem Chebbi",
       location: "Medenine, Tunisia",
       degree: "Baccalaureate in Computer Science",
+      date: "2020",
       highlight: false
     }
   ],
@@ -212,12 +222,14 @@ export const PORTFOLIO_DATA: PortfolioData = {
       items: [
         {
           title: "GDG On Campus EPI — Core Team Member 2025–2026",
-          description: "Received a Certificate of Appreciation from Google Developer Group On Campus EPI for contribution as a Core Team Member. Participated in organizing technical events and promoting software development, AI, cloud technologies, and open-source initiatives."
+          description: "Certificate of Appreciation from Google Developer Group On Campus EPI for organizing technical events and promoting software development, AI, cloud technologies, and open-source initiatives.",
+          image: "/med_ali_hamroun.png"
         },
         {
           title: "AWS Academy Graduate — Cloud Foundations",
           description: "Completed AWS Academy Cloud Foundations training covering cloud concepts, AWS services, security, architecture, and deployment fundamentals.",
-          link: "https://www.credly.com/badges/b4fbc187-cb9e-4278-9e51-a32a38c8bec6/"
+          link: "https://www.credly.com/badges/b4fbc187-cb9e-4278-9e51-a32a38c8bec6/",
+          image: "https://images.credly.com/size/680x680/images/e3541a0c-dd4a-4820-8052-5001006efc85/blob"
         }
       ]
     },
@@ -226,20 +238,20 @@ export const PORTFOLIO_DATA: PortfolioData = {
       items: [
         {
           title: "Web Development with MERN Stack",
-          date: "April 30, 2025",
-          description: "Practical training focused on building full-stack applications using MongoDB, Express.js, React.js, and Node.js, including authentication and deployment.",
+          date: "April 2025",
+          description: "Practical training on full-stack application development with MongoDB, Express.js, React.js, and Node.js — including authentication flows and production deployment.",
           video: "/VID-20250503-WA0008(2).mp4"
         },
         {
           title: "Introduction to React.js Trainer — HackMingle 3 (ISIMA)",
-          date: "Dec 13–14, 2025",
-          description: "Delivered practical React.js training covering components, state management, and modern frontend development.",
+          date: "December 2025",
+          description: "Delivered hands-on React.js workshop covering component architecture, state management, hooks, and modern frontend patterns.",
           video: ""
         },
         {
           title: "React.js Trainer — Digital Minds Workshop",
           date: "February 2026",
-          description: "Delivered practical React.js training covering components, state management, and modern frontend development.",
+          description: "Led advanced React.js training session on component composition, performance optimization, and production-grade frontend development.",
           video: "/AQN349P0g9fTYqNvjWuKgQyFPUtlcUv5NB8LRkw1fgscBNgyeB2nxOhVCXIeM1Zkuh7VnQY9C2Odu5faFVQy3LfM2gL6nQRzOBC-Dug.mp4"
         }
       ]
@@ -250,57 +262,58 @@ export const PORTFOLIO_DATA: PortfolioData = {
     { place: "2ND", event: "Coding Moon Hackathon", org: "Club Microsoft EPI", date: "Feb 13–14, 2026", image: "/1771507509325.jpg" },
     { place: "2ND", event: "Digital Minds Hackathon", org: "EPI COPRO", date: "Feb 14–15, 2026", image: "/1771507509441.jpg" },
     { place: "2ND", event: "2Fast Problem-Solving Competition", org: "", date: "Nov 25, 2025", image: "/1771507509790.jpg" },
-    { place: "2ND", event: "Fanous El Code Competition", org: "", date: "", image: "/IMG-20260415-WA0000.jpg" },
+    { place: "2ND", event: "Fanous El Code Competition", org: "", date: "April 2026", image: "/IMG-20260415-WA0000.jpg" },
     { place: "3RD", event: "VibeShift Hackathon", org: "GDG Sousse × ISET Sousse", date: "May 9, 2026", image: "/1779015325352 (1).jpg" }
   ],
   openSource: [
-    "VS Code Extensions",
-    "Vite React QR Share",
-    "Baraqex Framework",
-    "Hamroun-Express",
-    "DBGO Database Engine"
+    { name: "Baraqex Framework", url: "https://npmjs.com/baraqex" },
+    { name: "Hamroun-Express", url: "https://github.com/mohamedx2/hamroun-express" },
+    { name: "DBGO Database Engine", url: "https://github.com/mohamedx2/dbgo" },
+    { name: "Whiteboard SaaS", url: "https://github.com/mohamedx2/white-board" },
+    { name: "N8N SDK Agent", url: "https://github.com/mohamedx2/sdk-agent" },
+    { name: "VS Code Extensions", url: "https://github.com/mohamedx2" }
   ],
   technicalLedger: [
     {
-      category: "BACKEND & SYSTEMS",
-      skills: ["GO", "NODE.JS", "NIM", "RUST"]
+      category: "LANGUAGES",
+      skills: ["GO", "TYPESCRIPT", "NODE.JS", "PYTHON", "NIM", "RUST", "SQL"]
     },
     {
-      category: "FRONTEND & FRAMEWORKS",
-      skills: ["REACT", "NEXT.JS", "TYPESCRIPT", "SOLIDJS"]
+      category: "FRAMEWORKS & LIBRARIES",
+      skills: ["REACT", "NEXT.JS", "SOLIDJS", "EXPRESS", "SOCKET.IO", "LANGCHAIN"]
     },
     {
-      category: "INFRASTRUCTURE",
-      skills: ["DOCKER", "AWS", "KUBERNETES", "POSTGRES"]
+      category: "INFRASTRUCTURE & TOOLS",
+      skills: ["DOCKER", "AWS", "KUBERNETES", "POSTGRESQL", "REDIS", "NX MONOREPO", "GIT"]
     },
     {
       category: "SPECIALIZED DOMAINS",
-      skills: ["LSM TREES", "AI AGENTS", "COMPILERS", "FRAMEWORK ENG."]
+      skills: ["FRAMEWORK ENG.", "LSM TREES", "AI AGENTS", "OCR", "SSR / HYDRATION", "EVENT SOURCING"]
     }
   ],
   focusAreas: [
     {
       number: "01",
-      title: "AUTONOMOUS AGENTS",
-      description: "Building self-orchestrating LLM systems that manage end-to-end workflows."
+      title: "FRAMEWORK ENGINEERING",
+      description: "Building custom runtime environments, reactive rendering engines, and developer-first abstractions from scratch."
     },
     {
       number: "02",
-      title: "INTERNAL TOOLING",
-      description: "Designing developer-first CLI tools and internal frameworks that reduce cognitive load."
+      title: "AI & AUTOMATION",
+      description: "Deploying local LLM inference pipelines, multi-agent orchestration systems, and AI-powered developer tooling."
     },
     {
       number: "03",
       title: "STORAGE INTERNALS",
-      description: "Deep architectural research into B-Trees, LSM Trees, and specialized storage persistence."
+      description: "Deep architectural research into B-Trees, LSM Trees, write-ahead logging, and specialized persistence engines."
     }
   ],
   socials: [
     { name: "GITHUB", url: "https://github.com/mohamedx2" },
     { name: "LINKEDIN", url: "https://www.linkedin.com/in/mohamed-ali-hamroun-486573314/" },
-    { name: "PORTFOLIO", url: "#" },
-    { name: "RESUME", url: "#" }
+    { name: "NPM", url: "https://npmjs.com/baraqex" },
+    { name: "PORTFOLIO", url: "https://www.mohamedalihamroun.me" }
   ],
-  footerTags: ["Commencement", "Alumni Association", "University Press"],
-  copyright: "© CLASS OF 2024 • THE ACADEMIC GAZETTE"
+  footerTags: ["Full-Stack Development", "Systems Engineering", "Open Source"],
+  copyright: "© 2026 MOHAMED ALI HAMROUN • ALL RIGHTS RESERVED"
 };
