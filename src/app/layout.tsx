@@ -2,8 +2,45 @@
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Mohamed Ali Hamroun | Academic Gazette',
-  description: 'Portfolio of Mohamed Ali Hamroun',
+  metadataBase: new URL('https://www.mohamedalihamroun.me'),
+  title: 'Mohamed Ali Hamroun | Full-Stack Developer & Systems Engineer',
+  description: 'Portfolio of Mohamed Ali Hamroun — Full-stack developer and systems engineer specializing in framework engineering, AI automation, and low-level systems. Creator of Baraqex, DBGO, and open-source tools.',
+  keywords: ['Mohamed Ali Hamroun', 'full-stack developer', 'systems engineer', 'JavaScript', 'TypeScript', 'Go', 'React', 'Next.js', 'framework engineering', 'open source', 'Tunisia'],
+  authors: [{ name: 'Mohamed Ali Hamroun' }],
+  creator: 'Mohamed Ali Hamroun',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://www.mohamedalihamroun.me',
+    siteName: 'Mohamed Ali Hamroun',
+    title: 'Mohamed Ali Hamroun | Full-Stack Developer & Systems Engineer',
+    description: 'Portfolio of Mohamed Ali Hamroun — Full-stack developer and systems engineer specializing in framework engineering, AI automation, and low-level systems.',
+    images: [
+      {
+        url: '/social-card.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Mohamed Ali Hamroun — Full-Stack Developer & Systems Engineer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mohamed Ali Hamroun | Full-Stack Developer & Systems Engineer',
+    description: 'Full-stack developer and systems engineer specializing in framework engineering, AI automation, and low-level systems.',
+    images: ['/social-card.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {

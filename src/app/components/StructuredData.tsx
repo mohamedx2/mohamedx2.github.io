@@ -3,8 +3,9 @@ export default function StructuredData() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Mohamed Ali Hamroun",
-    "jobTitle": "Full Stack Developer",
-    "description": "22-year-old full-stack developer with 2 years of experience and 10+ completed projects. Specializing in React, Next.js, Node.js, and full-stack development.",
+    "alternateName": "mohamedx2",
+    "jobTitle": "Full-Stack Developer & Systems Engineer",
+    "description": "Full-stack developer and systems engineer specializing in framework engineering, AI automation, and low-level systems. Creator of Baraqex, DBGO, and multiple open-source projects.",
     "url": "https://www.mohamedalihamroun.me",
     "image": {
       "@type": "ImageObject",
@@ -14,28 +15,61 @@ export default function StructuredData() {
     },
     "sameAs": [
       "https://github.com/mohamedx2",
-      "https://linkedin.com/in/mohamedx2"
+      "https://www.linkedin.com/in/mohamed-ali-hamroun-486573314/",
+      "https://npmjs.com/baraqex",
+      "https://baraqex.tech"
     ],
     "knowsAbout": [
-      "Full Stack Development",
+      "Full-Stack Development",
+      "Systems Engineering",
       "JavaScript",
       "TypeScript",
+      "Go",
       "React",
       "Next.js",
-      "Node.js",
-      "Web Development",
-      "Software Development",
-      "Frontend Development",
-      "Backend Development"
+      "Framework Engineering",
+      "LSM Trees",
+      "AI Agents",
+      "WebAssembly",
+      "Server-Side Rendering",
+      "Real-Time Collaboration",
+      "Open Source"
     ],
-    "yearsOfExperience": 2,
-    "worksFor": {
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "AWS Academy Graduate — Cloud Foundations",
+        "url": "https://www.credly.com/badges/b4fbc187-cb9e-4278-9e51-a32a38c8bec6/"
+      }
+    ],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "EPI — École Polytechnique Internationale Privée de Sousse",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sousse",
+          "addressCountry": "TN"
+        }
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Higher Institute of Computer Science",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mahdia",
+          "addressCountry": "TN"
+        }
+      }
+    ],
+    "memberOf": {
       "@type": "Organization",
-      "name": "Freelance Developer"
+      "name": "GDG On Campus EPI",
+      "description": "Google Developer Group On Campus — Core Team Member"
     },
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "University"
+    "nationality": {
+      "@type": "Country",
+      "name": "Tunisia"
     }
   };
 

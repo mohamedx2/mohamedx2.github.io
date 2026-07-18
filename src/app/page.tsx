@@ -2,12 +2,14 @@
 import { PORTFOLIO_DATA } from '../constants/portfolio';
 import ReelVideo from './components/ReelVideo';
 import ProjectTag from './components/ProjectTag';
+import StructuredData from './components/StructuredData';
 
 export default function Home() {
   const { header, profile, projects, education, achievements, hackathons, openSource, technicalLedger, focusAreas, socials, copyright, footerTags } = PORTFOLIO_DATA;
 
   return (
     <>
+      <StructuredData />
       <header className="bg-surface docked full-width top-0 border-b border-primary py-6 flex flex-col items-center justify-center w-full px-margin-desktop max-w-container-max mx-auto">
         <div className="flex items-center justify-between w-full mb-4">
           <span className="font-label-caps text-label-caps text-secondary">ESTABLISHED {header.established}</span>

@@ -81,7 +81,7 @@ export type PortfolioData = {
 
 export const PORTFOLIO_DATA: PortfolioData = {
   header: {
-    established: "2024",
+    established: "2026",
     title: "News of the Day",
     edition: "PORTFOLIO EDITION",
     volume: "VOL. 02 • NO. 2026",
